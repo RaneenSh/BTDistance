@@ -8,24 +8,19 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
@@ -124,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    String receivedData = "";
 
     private void implemeentlisteners() {
         listDevices.setOnClickListener(new View.OnClickListener() {
@@ -181,141 +177,147 @@ public class MainActivity extends AppCompatActivity {
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff = (byte[]) msg.obj;
                     String tempMag = new String(readBuff,0,msg.arg1);
-                    msg_box.setText(tempMag);
-                    //Here are the audios
-                    if (mMediaPlayer.isPlaying()) {
-                        mMediaPlayer.pause();
-                        mMediaPlayer.seekTo(0);
-                    }else if (m1.isPlaying()) {
-                        m1.pause();
-                        m1.seekTo(0);
-                    }else if (m2.isPlaying()) {
-                        m2.pause();
-                        m2.seekTo(0);
-                    }else if (m3.isPlaying()) {
-                        m3.pause();
-                        m3.seekTo(0);
-                    }else if (m4.isPlaying()) {
-                        m4.pause();
-                        m4.seekTo(0);
-                    }else if (m5.isPlaying()) {
-                        m5.pause();
-                        m5.seekTo(0);
-                    }else if (m6.isPlaying()) {
-                        m6.pause();
-                        m6.seekTo(0);
-                    }else if (m7.isPlaying()){
-                        m7.pause();
-                        m7.seekTo(0);
-                    }else if (m8.isPlaying()) {
-                        m8.pause();
-                        m8.seekTo(0);
-                    }else if (m9.isPlaying()) {
-                        m9.pause();
-                        m9.seekTo(0);
-                    }else if (m10.isPlaying()) {
-                        m10.pause();
-                        m10.seekTo(0);
-                    }else if (m11.isPlaying()) {
-                        m11.pause();
-                        m11.seekTo(0);
-                    }else if (m12.isPlaying()) {
-                        m12.pause();
-                        m12.seekTo(0);
-                    }else if (m13.isPlaying()) {
-                        m13.pause();
-                        m13.seekTo(0);
-                    }else if (m14.isPlaying()) {
-                        m14.pause();
-                        m14.seekTo(0);
-                    }else if (m15.isPlaying()) {
-                        m15.pause();
-                        m15.seekTo(0);
-                    }else if (m16.isPlaying()) {
-                        m16.pause();
-                        m16.seekTo(0);
-                    }else if (m17.isPlaying()) {
-                        m17.pause();
-                        m17.seekTo(0);
-                    }else if (m18.isPlaying()) {
-                        m18.pause();
-                        m18.seekTo(0);
-                    }else if (m19.isPlaying()) {
-                        m19.pause();
-                        m19.seekTo(0);
-                    }else if (m20.isPlaying()) {
-                        m20.pause();
-                        m20.seekTo(0);
-                    }else if (m21.isPlaying()) {
-                        m21.pause();
-                        m21.seekTo(0);
-                    }else if (m22.isPlaying()) {
-                        m22.pause();
-                        m22.seekTo(0);
-                    }else if (m23.isPlaying()) {
-                        m23.pause();
-                        m23.seekTo(0);
-                    }else if (m24.isPlaying()) {
-                        m24.pause();
-                        m24.seekTo(0);
-                    }else if (m25.isPlaying()) {
-                        m25.pause();
-                        m25.seekTo(0);
-                    }
+                    receivedData += tempMag;
+                    if (tempMag.endsWith("\n")) {
+                        msg_box.setText(receivedData);
+
+                        //Here are the audios
+                        if (mMediaPlayer.isPlaying()) {
+                            mMediaPlayer.pause();
+                            mMediaPlayer.seekTo(0);
+                        } else if (m1.isPlaying()) {
+                            m1.pause();
+                            m1.seekTo(0);
+                        } else if (m2.isPlaying()) {
+                            m2.pause();
+                            m2.seekTo(0);
+                        } else if (m3.isPlaying()) {
+                            m3.pause();
+                            m3.seekTo(0);
+                        } else if (m4.isPlaying()) {
+                            m4.pause();
+                            m4.seekTo(0);
+                        } else if (m5.isPlaying()) {
+                            m5.pause();
+                            m5.seekTo(0);
+                        } else if (m6.isPlaying()) {
+                            m6.pause();
+                            m6.seekTo(0);
+                        } else if (m7.isPlaying()) {
+                            m7.pause();
+                            m7.seekTo(0);
+                        } else if (m8.isPlaying()) {
+                            m8.pause();
+                            m8.seekTo(0);
+                        } else if (m9.isPlaying()) {
+                            m9.pause();
+                            m9.seekTo(0);
+                        } else if (m10.isPlaying()) {
+                            m10.pause();
+                            m10.seekTo(0);
+                        } else if (m11.isPlaying()) {
+                            m11.pause();
+                            m11.seekTo(0);
+                        } else if (m12.isPlaying()) {
+                            m12.pause();
+                            m12.seekTo(0);
+                        } else if (m13.isPlaying()) {
+                            m13.pause();
+                            m13.seekTo(0);
+                        } else if (m14.isPlaying()) {
+                            m14.pause();
+                            m14.seekTo(0);
+                        } else if (m15.isPlaying()) {
+                            m15.pause();
+                            m15.seekTo(0);
+                        } else if (m16.isPlaying()) {
+                            m16.pause();
+                            m16.seekTo(0);
+                        } else if (m17.isPlaying()) {
+                            m17.pause();
+                            m17.seekTo(0);
+                        } else if (m18.isPlaying()) {
+                            m18.pause();
+                            m18.seekTo(0);
+                        } else if (m19.isPlaying()) {
+                            m19.pause();
+                            m19.seekTo(0);
+                        } else if (m20.isPlaying()) {
+                            m20.pause();
+                            m20.seekTo(0);
+                        } else if (m21.isPlaying()) {
+                            m21.pause();
+                            m21.seekTo(0);
+                        } else if (m22.isPlaying()) {
+                            m22.pause();
+                            m22.seekTo(0);
+                        } else if (m23.isPlaying()) {
+                            m23.pause();
+                            m23.seekTo(0);
+                        } else if (m24.isPlaying()) {
+                            m24.pause();
+                            m24.seekTo(0);
+                        } else if (m25.isPlaying()) {
+                            m25.pause();
+                            m25.seekTo(0);
+                        }
 
 
-                    if (tempMag.startsWith("0.5") || tempMag.startsWith(".5")) {
-                        mMediaPlayer.start();
-                    }else if (tempMag.startsWith("1.5")){
-                        m2.start();
-                    }else if (tempMag.startsWith("1.0") || tempMag.startsWith("1")){
-                        m1.start();
-                    }else if (tempMag.startsWith("2.5")){
-                        m4.start();
-                    }else if (tempMag.startsWith("2") || tempMag.startsWith("2.0")){
-                        m3.start();
-                    }else if (tempMag.startsWith("3.5")){
-                        m6.start();
-                    }else if (tempMag.startsWith("3") || tempMag.startsWith("3.0")){
-                        m5.start();
-                    }else if (tempMag.startsWith("4.5")){
-                        m8.start();
-                    }else if (tempMag.startsWith("4") || tempMag.startsWith("4.0")){
-                        m7.start();
-                    }else if (tempMag.startsWith("5.5")){
-                        m10.start();
-                    }else if (tempMag.startsWith("5") || tempMag.startsWith("5.0")){
-                        m9.start();
-                    }else if (tempMag.startsWith("6.5")){
-                        m12.start();
-                    }else if (tempMag.startsWith("6") || tempMag.startsWith("6.0")){
-                        m11.start();
-                    }else if (tempMag.startsWith("7.5")){
-                        m14.start();
-                    }else if (tempMag.startsWith("7") || tempMag.startsWith("7.0")){
-                        m13.start();
-                    }else if (tempMag.startsWith("8.5")){
-                        m16.start();
-                    }else if (tempMag.startsWith("8") || tempMag.startsWith("8.0")){
-                        m15.start();
-                    }else if (tempMag.startsWith("9.5")){
-                        m18.start();
-                    }else if (tempMag.startsWith("9") || tempMag.startsWith("9.0")){
-                        m17.start();
-                    }else if (tempMag.startsWith("10.5")){
-                        m20.start();
-                    }else if (tempMag.startsWith("10") || tempMag.startsWith("10.0")){
-                        m19.start();
-                    }else if (tempMag.startsWith("11.5")){
-                        m22.start();
-                    }else if (tempMag.startsWith("11") || tempMag.startsWith("11.0")){
-                        m21.start();
-                    }else if (tempMag.startsWith("12.5")){
-                        m24.start();
-                    }else if (tempMag.startsWith("12") || tempMag.startsWith("12.0")){
-                        m23.start();
-                    }else if (tempMag.startsWith("13") || tempMag.startsWith("13.0")){
-                        m25.start();
+                        if (receivedData.startsWith("0.5") || receivedData.startsWith(".5")) {
+                            mMediaPlayer.start();
+                        } else if (receivedData.startsWith("1.5")) {
+                            m2.start();
+                        } else if (receivedData.startsWith("1.0") || receivedData.startsWith("1")) {
+                            m1.start();
+                        } else if (receivedData.startsWith("2.5")) {
+                            m4.start();
+                        } else if (receivedData.startsWith("2") || receivedData.startsWith("2.0")) {
+                            m3.start();
+                        } else if (receivedData.startsWith("3.5")) {
+                            m6.start();
+                        } else if (receivedData.startsWith("3") || receivedData.startsWith("3.0")) {
+                            m5.start();
+                        } else if (receivedData.startsWith("4.5")) {
+                            m8.start();
+                        } else if (receivedData.startsWith("4") || receivedData.startsWith("4.0")) {
+                            m7.start();
+                        } else if (receivedData.startsWith("5.5")) {
+                            m10.start();
+                        } else if (receivedData.startsWith("5") || receivedData.startsWith("5.0")) {
+                            m9.start();
+                        } else if (receivedData.startsWith("6.5")) {
+                            m12.start();
+                        } else if (receivedData.startsWith("6") || receivedData.startsWith("6.0")) {
+                            m11.start();
+                        } else if (receivedData.startsWith("7.5")) {
+                            m14.start();
+                        } else if (receivedData.startsWith("7") || receivedData.startsWith("7.0")) {
+                            m13.start();
+                        } else if (receivedData.startsWith("8.5")) {
+                            m16.start();
+                        } else if (receivedData.startsWith("8") || receivedData.startsWith("8.0")) {
+                            m15.start();
+                        } else if (receivedData.startsWith("9.5")) {
+                            m18.start();
+                        } else if (receivedData.startsWith("9") || receivedData.startsWith("9.0")) {
+                            m17.start();
+                        } else if (receivedData.startsWith("10.5")) {
+                            m20.start();
+                        } else if (receivedData.startsWith("10") || receivedData.startsWith("10.0")) {
+                            m19.start();
+                        } else if (receivedData.startsWith("11.5")) {
+                            m22.start();
+                        } else if (receivedData.startsWith("11") || receivedData.startsWith("11.0")) {
+                            m21.start();
+                        } else if (receivedData.startsWith("12.5")) {
+                            m24.start();
+                        } else if (receivedData.startsWith("12") || receivedData.startsWith("12.0")) {
+                            m23.start();
+                        } else if (receivedData.startsWith("13") || receivedData.startsWith("13.0")) {
+                            m25.start();
+                        }
+
+                        receivedData = "";
                     }
                     break;
             }
