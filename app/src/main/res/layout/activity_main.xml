@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="easyway2in.com.bttest.MainActivity">
+
+    <Button
+        android:id="@+id/listen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginTop="61dp"
+        android:text="Listen"
+        android:visibility="invisible"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/listdevices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/listen"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="13dp"
+        android:text="List Devices" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listdevices"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="41dp"
+        android:text="Status" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/Msg"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listen"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="35dp"/>
+
+    <TextView
+        android:id="@+id/Msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="113dp"
+        android:gravity="center"
+        android:hint="Message"
+        android:textColor="#000000"
+        android:textSize="30dp" />
+
+
+
+
+</RelativeLayout>
