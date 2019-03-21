@@ -267,8 +267,6 @@ public class MainActivity extends AppCompatActivity {
                             mMediaPlayer.start();
                         } else if (receivedData.startsWith("1.5")) {
                             m2.start();
-                        } else if (receivedData.startsWith("1.0") || receivedData.startsWith("1")) {
-                            m1.start();
                         } else if (receivedData.startsWith("2.5")) {
                             m4.start();
                         } else if (receivedData.startsWith("2") || receivedData.startsWith("2.0")) {
@@ -315,6 +313,8 @@ public class MainActivity extends AppCompatActivity {
                             m23.start();
                         } else if (receivedData.startsWith("13") || receivedData.startsWith("13.0")) {
                             m25.start();
+                        } else if (receivedData.startsWith("1.0") || receivedData.startsWith("1")) {
+                            m1.start();
                         }
 
                         receivedData = "";
