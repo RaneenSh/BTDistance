@@ -85,8 +85,8 @@ void loop() {
   }
 
   u8g2.clearBuffer();          // clear the internal memory
-  u8g2.setFont(u8g2_font_ncenB08_tr); // choose a suitable font
-  u8g2.drawStr(0,10,("Distance " + String(oldDistance)).c_str());  // write something to the internal memory
+  u8g2.setFont(u8g2_font_ncenB12_tr); // choose a suitable font
+  u8g2.drawStr(0,12,("Distance " + String(oldDistance)).c_str());  // write something to the internal memory
 //  u8g2.drawStr(1,10, .c_str());  // write something to the internal memory
 
   u8g2.sendBuffer();          // transfer internal memory to the display
