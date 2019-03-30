@@ -76,12 +76,17 @@ void setup() {
 float oldDistance = -1;
 void loop() {
 
+  delay(1000);
   float cm = sonar.ping_cm();
   float newDistance = ((int)((cm / 70.0f + 0.5f) * 2.0f)) / 2.0f;
   if (newDistance != oldDistance && cm != 0.0f)
   {
     Serial.println(newDistance); // Send ping, get distance in cm and print result (0 = outside set distance range)
     oldDistance = newDistance;
+    if (oldDistance > 7.0)
+      oldDistance = 7.0;
+    if (oldDistance < 0.5)
+      oldDistance = 0.5;
   }
 
   u8g2.clearBuffer();          // clear the internal memory
